@@ -44,10 +44,8 @@ vim.cmd("command! Save w")
 vim.cmd("command! Nom %s/\r//g")
 vim.cmd("command! Noh nohlsearch")
 
-vim.cmd("set wrap")
-
 vim.cmd("set encoding=utf-8")
-
+vim.opt.wrap = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
