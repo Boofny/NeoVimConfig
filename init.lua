@@ -84,7 +84,7 @@ require("lazy").setup({
     {import = "plugins.neotree"}, --6
     {import = "plugins.blinkline"}, --7
     {import = "plugins.alpha"}, --8
-    {import = "plugins.surround"}, --9
+    -- {import = "plugins.surround"}, --9
     {import = "plugins.autopair"}, --10
     {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
