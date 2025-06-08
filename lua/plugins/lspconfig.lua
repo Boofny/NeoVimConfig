@@ -1,14 +1,16 @@
 return{
       "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile" }, -- Lazy load when editing
+        event =  "InsertEnter", -- Lazy load when editing
       dependencies = {
         {
         "williamboman/mason.nvim",
-        event = { "BufReadPre", "InsertEnter" },
+        -- event = { "BufReadPre", "InsertEnter" },
+            lazy = true,
         },
         {
         "williamboman/mason-lspconfig.nvim",
-        event = { "BufReadPre", "InsertEnter" }
+        -- event = { "BufReadPre", "InsertEnter" }
+            lazy = true,
         }
       },
       config = function()
