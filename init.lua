@@ -46,8 +46,8 @@ vim.cmd("command! Noh nohlsearch")
 
 vim.cmd("set encoding=utf-8")
 vim.opt.wrap = false
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 --Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
