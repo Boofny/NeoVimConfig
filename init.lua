@@ -46,8 +46,8 @@ vim.cmd("command! Noh nohlsearch")
 
 vim.cmd("set encoding=utf-8")
 vim.opt.wrap = false
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 --Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -88,6 +88,14 @@ require("lazy").setup({
     {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
+
+
+
+    {
+      "stevearc/oil.nvim",
+      opts = {},
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
     --five a day done in 5 days
     --also stop making changes between the linux one and wsl one 
     --this one will be the new main one so all changes are made for this one 
