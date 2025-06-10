@@ -91,11 +91,6 @@ require("lazy").setup({
 
 
 
-    {
-      "stevearc/oil.nvim",
-      opts = {},
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-    }
     --five a day done in 5 days
     --also stop making changes between the linux one and wsl one 
     --this one will be the new main one so all changes are made for this one 
