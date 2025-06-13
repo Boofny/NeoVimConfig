@@ -69,7 +69,16 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+
+
 -- require("lazy").setup("plugins")
+    vim.diagnostic.config({
+      virtual_text = true, -- inline error/warning text
+      signs = false,        -- signs in the gutter
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+    })
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
