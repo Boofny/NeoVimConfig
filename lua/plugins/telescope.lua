@@ -1,9 +1,8 @@
-
 return{
       "nvim-telescope/telescope.nvim",
-      keys = {
+        keys = {
         {
-          "<leader>f",
+        "<leader>f",
      function()
             local cwd = vim.fn.getcwd()
 
@@ -15,9 +14,9 @@ return{
 
             require("telescope.builtin").find_files({ cwd = cwd })
           end,
-          desc = "Find files in current or opened directory",
+          -- desc = "Find files in current or opened directory",
         },
-      },
+    },
       dependencies = { "nvim-lua/plenary.nvim" },
       config = function()
         require("telescope").setup()

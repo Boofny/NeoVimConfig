@@ -99,10 +99,10 @@ require("lazy").setup({
     {import = "plugins.treesitter"}, --12
 
 
-    {
-      "nvim-treesitter/nvim-treesitter-context",
-      config = true
-    }
+    -- {
+    --   "nvim-treesitter/nvim-treesitter-context",
+    --   config = true
+    -- }
 
     --five a day done in 5 days
     --also stop making changes between the linux one and wsl one 
