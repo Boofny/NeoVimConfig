@@ -97,8 +97,13 @@ require("lazy").setup({
     {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
-
-
+{
+  "leath-dub/snipe.nvim",
+  keys = {
+    {"gb", function () require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu"}
+  },
+  opts = {}
+},
     -- {
     --   "nvim-treesitter/nvim-treesitter-context",
     --   config = true
