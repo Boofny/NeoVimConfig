@@ -86,8 +86,8 @@ require("lazy").setup({
 
 
     {import = "plugins.gitsigns"}, --1
-    {import = "plugins.luasnip"}, --2
-    {import = "plugins.nvimcmp"}, --3
+    -- {import = "plugins.luasnip"}, --2
+    -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, --4
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
@@ -97,14 +97,31 @@ require("lazy").setup({
     {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
-{
-  "leath-dub/snipe.nvim",
-  keys = {
-    {"gb", function () require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu"}
-  },
-  opts = {}
-},
 
+{
+  'saghen/blink.cmp',
+  dependencies = { 'rafamadriz/friendly-snippets' },
+
+  version = '1.*',
+
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    keymap = {preset = 'enter'},
+
+    appearance = {
+      nerd_font_variant = 'mono'
+    },
+
+    completion = { documentation = { auto_show = true} },
+
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" }
+  },
+  opts_extend = { "sources.default" }
+},
 
     -- {
     --   "nvim-treesitter/nvim-treesitter-context",
