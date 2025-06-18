@@ -107,7 +107,12 @@ require("lazy").setup({
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    keymap = {preset = 'enter'},
+    keymap = {
+            preset = 'enter',
+
+      ['<S-Tab>'] = { 'select_prev', 'fallback' },
+      ['<Tab>'] = { 'select_next', 'fallback' },
+        },
 
     appearance = {
       nerd_font_variant = 'mono'
