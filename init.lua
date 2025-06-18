@@ -17,6 +17,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   end,
 })
 
+
 -- For make
 vim.api.nvim_set_keymap(
   "n",
@@ -112,7 +113,7 @@ require("lazy").setup({
 
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<C-n>'] = { 'select_and_accept' },
+      ['<CR>'] = { 'accept', 'fallback' },
         },
 
     appearance = {
