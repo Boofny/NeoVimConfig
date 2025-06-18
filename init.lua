@@ -112,7 +112,7 @@ require("lazy").setup({
 
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<C-Space>'] = { 'select_and_accept' },
+      ['<C-n>'] = { 'select_and_accept' },
         },
 
     appearance = {
@@ -128,14 +128,6 @@ require("lazy").setup({
   },
   opts_extend = { "sources.default" }
 },
-    -- {
-    --   "nvim-treesitter/nvim-treesitter-context",
-    --   config = true
-    -- }
-
-    --five a day done in 5 days
-    --also stop making changes between the linux one and wsl one 
-    --this one will be the new main one so all changes are made for this one 
 
 
     -- {
