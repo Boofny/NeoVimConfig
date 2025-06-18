@@ -128,7 +128,6 @@ require("lazy").setup({
   },
   opts_extend = { "sources.default" }
 },
-
     -- {
     --   "nvim-treesitter/nvim-treesitter-context",
     --   config = true
