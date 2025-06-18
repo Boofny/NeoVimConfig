@@ -108,10 +108,11 @@ require("lazy").setup({
   ---@type blink.cmp.Config
   opts = {
     keymap = {
-            preset = 'enter',
+            preset = 'none',
 
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
+      ['<C-Space>'] = { 'select_and_accept' },
         },
 
     appearance = {
