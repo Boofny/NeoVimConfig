@@ -46,9 +46,9 @@ return {
       -- Optional: automatically install servers you open a buffer for
       automatic_installation = true,
     })
+    -- might be a good idea to remove this 
 
     local lspconfig = require("lspconfig")
-
     -- Automatically setup all installed servers
     -- require("mason-lspconfig").setup_handlers({
     --   function(server_name)

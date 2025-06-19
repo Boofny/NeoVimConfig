@@ -117,11 +117,11 @@ require("lazy").setup({
         },
 
     appearance = {
-      nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono',
+
     },
 
-    completion = { documentation = { auto_show = true} },
-
+    completion = { documentation = { auto_show = true } },
     sources = {
         providers = {
                 lsp = {fallbacks={}}
