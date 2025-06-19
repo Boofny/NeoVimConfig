@@ -123,6 +123,9 @@ require("lazy").setup({
     completion = { documentation = { auto_show = true} },
 
     sources = {
+        providers = {
+                lsp = {fallbacks={}}
+            },
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" }
