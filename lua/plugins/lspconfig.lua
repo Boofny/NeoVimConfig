@@ -19,7 +19,7 @@
 --           ensure_installed = { "html" }, -- Ensure html and js LSPs are installed
 --         })
 --
---         local lspconfig = require
+--         local lspconfig = require("lspconfig")
 --         lspconfig.html.setup({
 --           root_dir = function(fname)
 --             return lspconfig.util.root_pattern("index.html", ".git")(fname) or vim.loop.cwd()
@@ -27,7 +27,6 @@
 --         })
 --       end,
 --     }
-
 
 
 return {

@@ -17,7 +17,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   end,
 })
 
-
 -- For make
 vim.api.nvim_set_keymap(
   "n",
