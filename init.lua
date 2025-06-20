@@ -392,7 +392,7 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
-
+vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
 
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
