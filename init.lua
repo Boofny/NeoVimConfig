@@ -93,10 +93,12 @@ require("lazy").setup({
     {import = "plugins.neotree"}, --6
     {import = "plugins.blinkline"}, --7
     {import = "plugins.alpha"}, --8
-    {import = "plugins.autopair"}, --10
+    -- {import = "plugins.autopair"}, --10
     {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
+
+    { 'echasnovski/mini.nvim', version = '*' },
 
 {
   'saghen/blink.cmp',
@@ -170,34 +172,6 @@ require("lazy").setup({
     -- },
 
     -- {
-    --   "neovim/nvim-lspconfig",
-    --     event = { "BufReadPre", "BufNewFile" }, -- Lazy load when editing
-    --   dependencies = {
-    --     {
-    --     "williamboman/mason.nvim",
-    --     event = { "BufReadPre", "BufNewFile" },
-    --     },
-    --     {
-    --     "williamboman/mason-lspconfig.nvim",
-    --     event = { "BufReadPre", "BufNewFile" }
-    --     }
-    --   },
-    --   config = function()
-    --     require("mason").setup()
-    --     require("mason-lspconfig").setup({
-    --       ensure_installed = { "html" }, -- Ensure html and js LSPs are installed
-    --     })
-    --
-    --     local lspconfig = require("lspconfig")
-    --     lspconfig.html.setup({
-    --       root_dir = function(fname)
-    --         return lspconfig.util.root_pattern("index.html", ".git")(fname) or vim.loop.cwd()
-    --       end,
-    --     })
-    --   end,
-    -- },
-
-    -- {
     --   "nvim-lualine/lualine.nvim",
     --   dependencies = { "nvim-tree/nvim-web-devicons" },
     -- },
@@ -237,29 +211,6 @@ require("lazy").setup({
     --     },
     --   },
     -- },
-    -- { "goolord/alpha-nvim" },
-    -- { "tpope/vim-surround" },
-
-    -- {
-    --   "windwp/nvim-autopairs",
-    --   config = function()
-    --     require("nvim-autopairs").setup({})
-    --   end,
-    -- },
-
-
-    -- {
-    --   "nvim-telescope/telescope.nvim",
-    --   dependencies = { "nvim-lua/plenary.nvim" },
-    --   config = function()
-    --     require("telescope").setup()
-    --   end,
-    -- },
-    -- {
-    --     "catppuccin/nvim",
-    --     name = "catppuccin",
-    --     event = "InsertEnter",
-    -- },
 
     -- {
     --   "nvim-treesitter/nvim-treesitter",
@@ -280,10 +231,10 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
--- require("tokyonight").setup({
---   transparent= true,
--- })
--- vim.cmd.colorscheme("tokyonight")
+
+require('mini.surround').setup()  -- better surround handling
+require('mini.pairs').setup()     -- auto-pairing brackets
+
 
 
 require("catppuccin").setup({
@@ -394,6 +345,8 @@ vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true 
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>q", ":wq<CR>")
+vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
+
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
 
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
