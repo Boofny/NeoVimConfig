@@ -143,13 +143,6 @@ require("lazy").setup({
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 
-require('mini.bufremove').setup()     -- auto-pairing brackets
-
-vim.keymap.set('n', '<leader>bd', function()
-  require('mini.bufremove').delete(0, false)
-end, { desc = 'Delete buffer' })
-
-
 require("catppuccin").setup({
   transparent_background= true,
 })
