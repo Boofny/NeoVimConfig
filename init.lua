@@ -143,6 +143,19 @@ require("lazy").setup({
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 
+require('mini.pick').setup()
+-- Keymap to open buffer picker
+vim.keymap.set('n', '<leader>p', function()
+  MiniPick.builtin.buffers()
+end, { desc = 'Pick buffer' })
+
+require('mini.bufremove').setup()     -- auto-pairing brackets
+
+vim.keymap.set('n', '<leader>bd', function()
+  require('mini.bufremove').delete(0, false)
+end, { desc = 'Delete buffer' })
+
+
 require("catppuccin").setup({
   transparent_background= true,
 })
