@@ -143,12 +143,6 @@ require("lazy").setup({
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 
-require('mini.pick').setup()
--- Keymap to open buffer picker
-vim.keymap.set('n', '<leader>p', function()
-  MiniPick.builtin.buffers()
-end, { desc = 'Pick buffer' })
-
 require('mini.bufremove').setup()     -- auto-pairing brackets
 
 vim.keymap.set('n', '<leader>bd', function()
@@ -167,6 +161,7 @@ vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true 
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
+vim.keymap.set("n", "<leader>p", ":Telescope buffers<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
 
