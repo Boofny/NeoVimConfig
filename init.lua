@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   end,
 })
 
+
 -- For make
 vim.api.nvim_set_keymap(
   "n",
@@ -66,8 +67,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-
-
 -- require("lazy").setup("plugins")
     vim.diagnostic.config({
       virtual_text = true, -- inline error/warning text
@@ -82,13 +81,23 @@ require("lazy").setup({
     -- add your plugins here
 
 
+{
+  "folke/snacks.nvim",
+  lazy = false,
+  opts = {
+    bigfile = { enabled = true },
+    indent = { enabled = true },
+    quickfile= { enabled = true },
+    scroll = { enabled = true },
+  },
+},
     {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.luasnip"}, --2
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, --4
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
-    {import = "plugins.blinkline"}, --7
+    -- {import = "plugins.blinkline"}, --7
     {import = "plugins.alpha"}, --8
     -- {import = "plugins.autopair"}, --10
     {import = "plugins.telescope"}, --10
@@ -131,21 +140,20 @@ require("lazy").setup({
   },
   opts_extend = { "sources.default" }
 },
-
+        --end of laay here 
   },
 
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
-
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 
 require("catppuccin").setup({
   transparent_background= true,
 })
+
 vim.cmd.colorscheme("catppuccin")
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
