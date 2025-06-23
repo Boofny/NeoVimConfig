@@ -153,7 +153,6 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>q", ":wq<CR>")
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
