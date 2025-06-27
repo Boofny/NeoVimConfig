@@ -162,6 +162,7 @@ vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true 
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
+-- vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>p", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>m", ":Telescope current_buffer_fuzzy_find<CR>")
 
