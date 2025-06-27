@@ -7,7 +7,6 @@ return{
         local dashboard = require("alpha.themes.dashboard")
 
 
-
 -- 🎨 Header (Customize this ASCII text)
 
 -- dashboard.section.header.val = {
@@ -75,6 +74,9 @@ return{
 [[⠻⠶⠾⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠋]],
 
 }
+
+
+
 -- 📌 Dashboard Buttons
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
