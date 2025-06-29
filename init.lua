@@ -89,7 +89,6 @@ require("lazy").setup({
     bigfile = { enabled = true },
     indent = { enabled = true },
     quickfile= { enabled = true },
-    scroll = { enabled = true },
     lazygit = { enabled = true },
     picker = {enabled = true, peview = nil}
   },
