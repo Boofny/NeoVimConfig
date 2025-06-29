@@ -80,6 +80,7 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
+{ 'mbbill/undotree' },
 
 {
   "folke/snacks.nvim",
@@ -89,9 +90,11 @@ require("lazy").setup({
     indent = { enabled = true },
     quickfile= { enabled = true },
     scroll = { enabled = true },
+    lazygit = { enabled = true },
+    picker = {enabled = true, peview = nil}
   },
 },
-    {import = "plugins.gitsigns"}, --1
+    -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.luasnip"}, --2
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, --4
@@ -100,7 +103,7 @@ require("lazy").setup({
     -- {import = "plugins.blinkline"}, --7
     {import = "plugins.alpha"}, --8
     -- {import = "plugins.autopair"}, --10
-    {import = "plugins.telescope"}, --10
+    -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
 
@@ -120,7 +123,7 @@ require("lazy").setup({
 
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<CR>'] = { 'accept', 'fallback' },
+      ['<C-n>'] = { 'accept', 'fallback' },
       ['<C-e>'] = { 'hide', 'fallback' },
         },
 
@@ -149,6 +152,7 @@ require("lazy").setup({
 })
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
+require('mini.diff').setup()     -- auto-pairing brackets
 
 require("catppuccin").setup({
   transparent_background= true,
@@ -162,9 +166,11 @@ vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true 
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
--- vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>p", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>m", ":Telescope current_buffer_fuzzy_find<CR>")
+vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>")
+vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
+vim.keymap.set("n", "<leader>m", ":lua Snacks.picker.grep_buffers()<CR>")
+vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit.open()<CR>")
+vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
 

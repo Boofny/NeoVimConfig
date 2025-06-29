@@ -79,7 +79,7 @@ return{
 
 -- 📌 Dashboard Buttons
 dashboard.section.buttons.val = {
-  dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
+  dashboard.button("f", "  Find File", ":lua Snacks.picker.files()<CR>"),
   dashboard.button("r", " 󰱼 Recent Files", ":Telescope oldfiles<CR>"),
   -- dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>"),
   -- dashboard.button("c", "  Neovim Config", ":e ~/.config/nvim/init.lua<CR>"),
