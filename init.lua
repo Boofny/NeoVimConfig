@@ -80,21 +80,20 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
--- nvim v0.8.0
 
   { 'mbbill/undotree' },
 
-{
-  "folke/snacks.nvim",
-  lazy = false,
-  opts = {
-    bigfile = { enabled = true },
-    indent = { enabled = true },
-    quickfile= { enabled = true },
-    -- lazygit = { enabled = true },
-    picker = {enabled = true, peview = nil}
+  {
+    "folke/snacks.nvim",
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      indent = { enabled = true },
+      quickfile= { enabled = true },
+      lazygit = { enabled = true },
+      picker = {enabled = true, peview = nil}
+    },
   },
-},
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.luasnip"}, --2
     -- {import = "plugins.nvimcmp"}, --3
