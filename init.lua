@@ -80,7 +80,9 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
-{ 'mbbill/undotree' },
+-- nvim v0.8.0
+
+  { 'mbbill/undotree' },
 
 {
   "folke/snacks.nvim",
@@ -89,7 +91,7 @@ require("lazy").setup({
     bigfile = { enabled = true },
     indent = { enabled = true },
     quickfile= { enabled = true },
-    lazygit = { enabled = true },
+    -- lazygit = { enabled = true },
     picker = {enabled = true, peview = nil}
   },
 },
@@ -164,11 +166,15 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
+
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
+
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>")
 vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
 vim.keymap.set("n", "<leader>m", ":lua Snacks.picker.grep_buffers()<CR>")
+
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit.open()<CR>")
+
 vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
