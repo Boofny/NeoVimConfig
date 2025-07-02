@@ -83,23 +83,14 @@ require("lazy").setup({
 
   { 'mbbill/undotree' },
 
-  {
-    "folke/snacks.nvim",
-    lazy = false,
-    opts = {
-      bigfile = { enabled = true },
-      indent = { enabled = true },
-      quickfile= { enabled = true },
-      lazygit = { enabled = true },
-      picker = {enabled = true, peview = nil}
-    },
-  },
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.luasnip"}, --2
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, --4
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
+    {import = "plugins.blink"}, --6
+    {import = "plugins.snacks"}, --6
     -- {import = "plugins.blinkline"}, --7
     {import = "plugins.alpha"}, --8
     -- {import = "plugins.autopair"}, --10
@@ -109,40 +100,6 @@ require("lazy").setup({
 
     { 'echasnovski/mini.nvim', version = '*' },
 
-{
-  'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
-
-  version = '1.*',
-
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
-  opts = {
-    keymap = {
-            preset = 'none',
-
-      ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<C-n>'] = { 'accept', 'fallback' },
-      ['<C-e>'] = { 'hide', 'fallback' },
-        },
-
-    appearance = {
-      nerd_font_variant = 'mono',
-
-    },
-
-    completion = { documentation = { auto_show = true } },
-    sources = {
-        providers = {
-                lsp = {fallbacks={}}
-            },
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
-    },
-    fuzzy = { implementation = "prefer_rust_with_warning" }
-  },
-  opts_extend = { "sources.default" }
-},
         --end of laay here 
   },
 
