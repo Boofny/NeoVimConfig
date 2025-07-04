@@ -79,8 +79,6 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- add your plugins here
-
-
   { 'mbbill/undotree' },
 
     -- {import = "plugins.gitsigns"}, --1
