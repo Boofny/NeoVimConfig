@@ -95,10 +95,8 @@ require("lazy").setup({
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
-
     { 'echasnovski/mini.nvim', version = '*' },
-
-        --end of laay here 
+        --end of lazy here 
   },
 
   install = { colorscheme = { "habamax" } },
@@ -113,7 +111,7 @@ require("catppuccin").setup({
   transparent_background= true,
 })
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
