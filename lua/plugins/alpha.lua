@@ -103,7 +103,7 @@ return{
 -- 📌 Dashboard Buttons
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find File", ":lua Snacks.picker.files()<CR>"),
-  dashboard.button("r", " 󰱼 Recent Files", ":Telescope oldfiles<CR>"),
+  dashboard.button("r", " 󰱼 Recent Files", ":lua Snacks.picker.recent()<CR>"),
   dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>"),
   dashboard.button("c", "  Neovim Config", ":e ~/.config/nvim/init.lua<CR>"),
   dashboard.button("q", " 󰩈 Quit", ":qa<CR>"),
