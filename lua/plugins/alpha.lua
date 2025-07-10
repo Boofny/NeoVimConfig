@@ -110,12 +110,12 @@ dashboard.section.buttons.val = {
 }
 
 
--- 📝 Footer Message
-dashboard.section.footer.val = {
-  "",
-  " 󰣇 NEOVIM 󰣇 ",
-  "",
-}
+-- -- 📝 Footer Message
+-- dashboard.section.footer.val = {
+--   "",
+--   " 󰣇 NEOVIM 󰣇 ",
+--   "",
+-- }
 
 -- 🛠 Apply Alpha Config
 alpha.setup(dashboard.opts)
