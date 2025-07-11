@@ -95,6 +95,7 @@ require("lazy").setup({
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
+    -- {import = "plugins.colorscheme"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
         --end of lazy here 
   },
@@ -113,10 +114,16 @@ require("catppuccin").setup({
 
 vim.cmd.colorscheme("catppuccin-mocha")
 
+vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
+
+vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- inactive tabs
+vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
+vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
+
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
