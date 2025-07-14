@@ -120,6 +120,21 @@ vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- i
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
 
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6c757d" }) -- or use "White", etc.
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6c757d" })
+
+vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
+
+vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
+
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
+
+vim.cmd("highlight CursorLine guibg=#3d3442")
+
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
@@ -140,3 +155,9 @@ vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, s
 
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without yanking to clipboard" })
+
+vim.keymap.set(
+  "n",
+  "<leader>ee",
+  "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+)
