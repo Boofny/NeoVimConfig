@@ -120,8 +120,8 @@ vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- i
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
 
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6c757d" }) -- or use "White", etc.
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6c757d" })
+-- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6c757d" }) -- or use "White", etc.
+-- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6c757d" })
 
 vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
@@ -158,6 +158,6 @@ vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without 
 
 vim.keymap.set(
   "n",
-  "<leader>ee",
+  "<leader>ge",
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
