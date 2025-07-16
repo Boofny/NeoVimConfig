@@ -1,6 +1,5 @@
 vim.opt.relativenumber = true -- Show relative line numbers for other lines
 vim.opt.cursorline = true
-vim.opt.clipboard = ""
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = "*.java",
   callback = function()
@@ -47,6 +46,7 @@ vim.opt.wrap = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.opt.clipboard = "unnamedplus"
 --Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
