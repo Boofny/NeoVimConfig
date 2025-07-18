@@ -82,7 +82,6 @@ require("lazy").setup({
   { 'mbbill/undotree' },
 
     -- {import = "plugins.gitsigns"}, --1
-    -- {import = "plugins.luasnip"}, --2
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, --4
     {import = "plugins.lualine"}, --5
@@ -90,13 +89,12 @@ require("lazy").setup({
     {import = "plugins.blink"}, --6
     {import = "plugins.snacks"}, --6
     -- {import = "plugins.blinkline"}, --7
-    {import = "plugins.alpha"}, --8
-    -- {import = "plugins.autopair"}, --10
+    -- {import = "plugins.alpha"}, --8
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
-    -- {import = "plugins.colorscheme"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
+
         --end of lazy here 
   },
 
@@ -111,7 +109,6 @@ require('mini.diff').setup()     -- auto-pairing brackets
 require("catppuccin").setup({
   transparent_background= true,
 })
-
 vim.cmd.colorscheme("catppuccin-mocha")
 
 vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
@@ -119,9 +116,6 @@ vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
 vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- inactive tabs
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
-
--- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6c757d" }) -- or use "White", etc.
--- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6c757d" })
 
 vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
 vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
