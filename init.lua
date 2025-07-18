@@ -147,8 +147,6 @@ vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>")
 vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
 vim.keymap.set("n", "<leader>m", ":lua Snacks.picker.grep_buffers()<CR>")
 
-vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit.open()<CR>")
-
 vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true })
