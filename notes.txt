@@ -1,0 +1,1 @@
+neotree seems to work in making the tabs not include the path check the linux and windows config and see what it is 
