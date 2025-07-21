@@ -95,7 +95,7 @@ require("lazy").setup({
     {import = "plugins.treesitter"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
 
-        --end of lazy here 
+    --end of lazy here 
   },
 
   install = { colorscheme = { "habamax" } },
@@ -131,8 +131,8 @@ vim.cmd("highlight CursorLine guibg=#3d3442")
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
@@ -147,7 +147,6 @@ vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, s
 
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without yanking to clipboard" })
-
 vim.keymap.set(
   "n",
   "<leader>ge",
