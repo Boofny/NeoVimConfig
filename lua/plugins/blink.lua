@@ -14,7 +14,8 @@ return{
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
       ['<C-n>'] = { 'accept', 'fallback' },
-      ['<C-e>'] = { 'hide', 'fallback' },
+      ['<C-e>'] = { 'hide_documentation', 'fallback' },
+      ['<C-h>'] = { 'show_documentation', 'fallback' },
         },
 
     appearance = {
@@ -22,7 +23,7 @@ return{
 
     },
 
-    completion = { documentation = { auto_show = true } },
+    completion = { documentation = { auto_show = false} },
     sources = {
         providers = {
                 lsp = {fallbacks={}}
