@@ -145,8 +145,8 @@ vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
 
-vim.keymap.set("n", "<Tab>", ":tabnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
+-- vim.keymap.set("n", "<Tab>", ":tabnext<CR>")
+-- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
 -- nnoremap <Tab> :tabnext<CR>
 -- nnoremap <S-Tab> :tabprevious<CR>
 --
