@@ -16,6 +16,7 @@ return{
     indent = { enabled = true },
     quickfile= { enabled = true },
     input = { enabled = true },
+    lazygit = { enabled = true },
     picker = {enabled = true, peview = nil},
     dashboard = {
       preset = {

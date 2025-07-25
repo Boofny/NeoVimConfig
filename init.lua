@@ -142,14 +142,10 @@ vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
 vim.keymap.set("n", "<leader>m", ":lua Snacks.picker.grep_buffers()<CR>")
 
 vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
 
--- vim.keymap.set("n", "<Tab>", ":tabnext<CR>")
--- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
--- nnoremap <Tab> :tabnext<CR>
--- nnoremap <S-Tab> :tabprevious<CR>
---
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without yanking to clipboard" })
 vim.keymap.set(
