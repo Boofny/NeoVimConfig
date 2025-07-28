@@ -10,7 +10,7 @@
 -- }
 
 return{
-  "snacks.nvim",
+  "folke/snacks.nvim",
   opts = {
     bigfile = { enabled = true },
     indent = { enabled = true },
