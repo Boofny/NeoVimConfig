@@ -23,7 +23,7 @@ return{
 
     },
 
-    completion = { documentation = { auto_show = false} },
+    completion = { documentation = { auto_show = true} },
     sources = {
         providers = {
                 lsp = {fallbacks={}}
