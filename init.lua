@@ -108,6 +108,18 @@ require('mini.diff').setup()     -- auto-pairing brackets
 
 require("catppuccin").setup({
   transparent_background= true,
+   custom_highlights = function(colors)
+      return {
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        -- Lazy.nvim
+        LazyNormal = { bg = "none" },
+        LazyBorder = { bg = "none" },
+        -- Snacks picker (or other plugins using floats)
+        SnacksPickerNormal = { bg = "none" },
+        SnacksPickerBorder = { bg = "none" },
+      }
+    end
 })
 vim.cmd.colorscheme("catppuccin-mocha")
 
