@@ -15,8 +15,8 @@ return{
     bigfile = { enabled = true },
     indent = { enabled = true },
     quickfile= { enabled = true },
-    input = { enabled = true },
-    lazygit = { enabled = true },
+    input = { enabled = true }, --try getting rid of input and lazygit
+    lazygit = { enabled = true }, --
     picker = {enabled = true, peview = nil},
     dashboard = {
       preset = {
