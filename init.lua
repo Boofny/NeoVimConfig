@@ -151,7 +151,8 @@ vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
 
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>")
 vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
-vim.keymap.set("n", "<leader>m", ":lua Snacks.picker.grep_buffers()<CR>")
+
+vim.keymap.set("n", "<leader>m", ":w | bd<CR>")
 
 vim.keymap.set("n", "<leader><leader>", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>")
