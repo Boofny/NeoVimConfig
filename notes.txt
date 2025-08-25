@@ -2,3 +2,4 @@ neotree seems to work in making the tabs not include the path check the linux an
 
 
 ok so you need to install ripgrep and barbar plugin
+now you should change the tree sitter pluigin like in the linux version
