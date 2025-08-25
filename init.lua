@@ -144,6 +144,11 @@ require'barbar'.setup {
   animation = false,
   auto_hide = true,
   tabpages = false,
+  icons = {
+      filetype = { enabled = true}, -- disables filetype icons
+  },
+  -- maximum_padding = 2,
+  -- minimum_padding = 1,
 }
 
 vim.cmd.colorscheme("catppuccin-mocha")
@@ -191,3 +196,6 @@ vim.keymap.set(
   "<leader>ge",
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
+
+vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
+-- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
