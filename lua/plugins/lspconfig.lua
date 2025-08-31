@@ -41,21 +41,18 @@ return {
 
     require("mason").setup()
 
+    local lspconfig = require("lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
+
     require("mason-lspconfig").setup({
-      -- Optional: automatically install servers you open a buffer for
       automatic_installation = true,
     })
-    -- might be a good idea to remove this 
 
-    local lspconfig = require("lspconfig")
-    -- Automatically setup all installed servers
-    -- require("mason-lspconfig").setup_handlers({
-    --   function(server_name)
-    --     lspconfig[server_name].setup({
-    --       capabilities = capabilities,
-    --     })
-      -- end,
-    -- })
+    -- lspconfig.tsserver.setup({ --originally this was tsserver but thats old i think so ts_ls works
+    lspconfig.ts_ls.setup({
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
+      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    })
   end,
 }
 
