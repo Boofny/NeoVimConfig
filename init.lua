@@ -79,7 +79,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- add your plugins here
-  { 'mbbill/undotree' },
+    { 'mbbill/undotree' },
 
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
@@ -93,21 +93,21 @@ require("lazy").setup({
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
-    {
-      {'romgrk/barbar.nvim',
-        dependencies = {
-          'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-        },
-        init = function() vim.g.barbar_auto_setup = false end,
-        opts = {
-          -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-          -- animation = false,
-          -- insert_at_start = true,
-          -- …etc.
-        },
-        version = '^1.0.0', -- optional: only update when a new 1.x version is released
-      },
-    },
+    -- {
+    --   {'romgrk/barbar.nvim',
+    --     dependencies = {
+    --       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    --     },
+    --     init = function() vim.g.barbar_auto_setup = false end,
+    --     opts = {
+    --       -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+    --       -- animation = false,
+    --       -- insert_at_start = true,
+    --       -- …etc.
+    --     },
+    --     version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    --   },
+    -- },
     { 'echasnovski/mini.nvim', version = '*' },
 
     --end of lazy here 
@@ -137,19 +137,17 @@ require("catppuccin").setup({
     end
 })
 
-
-
-vim.g.barbar_auto_setup = false -- disable auto-setup
-require'barbar'.setup {
-  animation = false,
-  auto_hide = true,
-  tabpages = false,
-  icons = {
-      filetype = { enabled = true}, -- disables filetype icons
-  },
-  -- maximum_padding = 2,
-  -- minimum_padding = 1,
-}
+-- vim.g.barbar_auto_setup = false -- disable auto-setup
+-- require'barbar'.setup {
+--   animation = false,
+--   auto_hide = true,
+--   tabpages = false,
+--   icons = {
+--       filetype = { enabled = true}, -- disables filetype icons
+--   },
+--   -- maximum_padding = 2,
+--   -- minimum_padding = 1,
+-- }
 
 vim.cmd.colorscheme("catppuccin-mocha")
 
@@ -197,5 +195,28 @@ vim.keymap.set(
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
-vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
+-- vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
 -- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
+
+-- not show the tabline when starting
+vim.o.showtabline = 1
+
+-- use custom tabline function
+vim.o.tabline = "%!v:lua.MyTabLine()"
+
+function _G.MyTabLine()
+  local s = ""
+  for i = 1, vim.fn.tabpagenr('$') do
+    local winnr = vim.fn.tabpagewinnr(i)
+    local bufnr = vim.fn.tabpagebuflist(i)[winnr]
+    local name = vim.fn.bufname(bufnr)
+    local label = vim.fn.fnamemodify(name, ":t") -- only filename (no path)
+
+    if i == vim.fn.tabpagenr() then
+      s = s .. "%#TabLineSel# " .. label .. " "
+    else
+      s = s .. "%#TabLine# " .. label .. " "
+    end
+  end
+  return s .. "%#TabLineFill#"
+end
