@@ -31,7 +31,7 @@
 
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" }, --get rid of burNewFile
+  event = { "BufReadPre" }, --get rid of burNewFile
   dependencies = {
     { "williamboman/mason.nvim", lazy = true },
     { "williamboman/mason-lspconfig.nvim", lazy = true },
