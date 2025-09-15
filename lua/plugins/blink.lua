@@ -1,7 +1,7 @@
 
 return{
   'saghen/blink.cmp',
-  event = "BufReadPre", --see linux nvim events 
+  event = {"BufReadPre", "BufNewFile"}, --see linux nvim events 
   dependencies = { 'rafamadriz/friendly-snippets' },
 
   version = '1.*',
