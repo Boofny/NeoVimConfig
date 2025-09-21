@@ -144,8 +144,8 @@ vim.cmd("highlight CursorLine guibg=#3d3442")
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
