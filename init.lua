@@ -79,8 +79,20 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+
     -- add your plugins here
-    { 'mbbill/undotree' },
+
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      signs = false,
+    }
+  },
+    -- { 'mbbill/undotree' },
 
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
@@ -168,7 +180,10 @@ vim.keymap.set(
   "<leader>ge",
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
-
+vim.cmd("iabbrev todo TODO:")
+vim.cmd("iabbrev note NOTE:")
+vim.cmd("iabbrev fix FIX:")
+vim.cmd("iabbrev bug BUG:")
 -- vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
 -- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
 
