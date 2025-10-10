@@ -14,7 +14,9 @@ return{
   opts = {
     bigfile = { enabled = true },
     indent = { enabled = true },
-    quickfile= { enabled = true },
+    quickfile = { enabled = true },
+     notifier = { enabled = true },
+     notify = { enabled = true },
     picker = {enabled = true, peview = nil},
     dashboard = {
       preset = {

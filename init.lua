@@ -118,6 +118,7 @@ require("lazy").setup({
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
+require('mini.ai').setup()     -- auto-pairing brackets
 
 require("catppuccin").setup({
   transparent_background= true,
