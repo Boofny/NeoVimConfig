@@ -92,7 +92,7 @@ require("lazy").setup({
       signs = false,
     }
   },
-    -- { 'mbbill/undotree' },
+    { 'mbbill/undotree' },
 
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
@@ -160,6 +160,7 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
@@ -169,7 +170,7 @@ vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
 
 vim.keymap.set("n", "<leader>m", ":w | bd<CR>")
 
--- vim.keymap.set("n", "<leader><leader>", ":<CR>") --free keymap 
+vim.keymap.set("n", "<leader><leader>", ":<CR>") --free keymap 
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
