@@ -1,0 +1,8 @@
+require('lsp.gopls')
+require('lsp.tsls')
+require('lsp.clangd')
+require('lsp.cssls')
+require('lsp.ast')
+require('lsp.emmet')
+require('lsp.htmlls')
+require('lsp.shfmt')

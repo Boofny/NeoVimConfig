@@ -14,17 +14,25 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 })
 
 
--- For make
+-- For Java
 vim.api.nvim_set_keymap(
   "n",
   "make",
   ":botright split | term javac % && java %:r<CR>",
   { noremap = true, silent = true }
 )
+-- For golang
 vim.api.nvim_set_keymap(
   "n",
   "go",
   [[:botright split | term sh -c "go run %"<CR>]],
+  { noremap = true, silent = true }
+)
+-- For c
+vim.api.nvim_set_keymap(
+  "n",
+  "cm",
+  ":botright split | term gcc % && ./a.out <CR>",
   { noremap = true, silent = true }
 )
 
@@ -96,29 +104,33 @@ require("lazy").setup({
 
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
-    {import = "plugins.lspconfig"}, --4
+    -- {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
     {import = "plugins.snacks"}, --6
     -- {import = "plugins.blinkline"}, --7
-    -- {import = "plugins.alpha"}, --8
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
-
+    {
+      "mason-org/mason.nvim",
+      opts = {}
+    },
     --end of lazy here 
   },
 
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = false},
 })
 require('mini.surround').setup()  -- better surround handling
 require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
 require('mini.ai').setup()     -- auto-pairing brackets
+
+require("mason").setup()
 
 require("catppuccin").setup({
   transparent_background= true,
@@ -211,3 +223,5 @@ function _G.MyTabLine()
   end
   return s .. "%#TabLineFill#"
 end
+
+require("lsp") --remove if vim.lsp doesnt work out
