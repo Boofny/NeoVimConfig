@@ -104,7 +104,7 @@ require("lazy").setup({
 
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
-    -- {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
+    {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
@@ -114,10 +114,10 @@ require("lazy").setup({
     {import = "plugins.catppuccin"}, --11
     {import = "plugins.treesitter"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
-    {
-      "mason-org/mason.nvim",
-      opts = {}
-    },
+    -- {
+    --   "mason-org/mason.nvim",
+    --   opts = {}
+    -- },
     --end of lazy here 
   },
 
@@ -130,7 +130,7 @@ require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
 require('mini.ai').setup()     -- auto-pairing brackets
 
-require("mason").setup()
+-- require("mason").setup()
 
 require("catppuccin").setup({
   transparent_background= true,
@@ -224,4 +224,4 @@ function _G.MyTabLine()
   return s .. "%#TabLineFill#"
 end
 
-require("lsp") --remove if vim.lsp doesnt work out
+-- require("lsp") --remove if vim.lsp doesnt work out
