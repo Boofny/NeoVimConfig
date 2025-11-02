@@ -185,6 +185,7 @@ vim.keymap.set("n", "<leader>m", ":w | bd<CR>")
 vim.keymap.set('n', '<leader><leader>', vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>")
 
+vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
 
 vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
