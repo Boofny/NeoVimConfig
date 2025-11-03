@@ -41,19 +41,5 @@ return {
         vim.lsp.start(vim.lsp.config["ts_ls"])
       end,
     })
-
-    -- require("mason-lspconfig").setup_handlers({
-    --   function(server_name)
-    --     vim.lsp.config[server_name] = {
-    --       capabilities = capabilities,
-    --     }
-    --     vim.api.nvim_create_autocmd("FileType", {
-    --       pattern = "*",
-    --       callback = function()
-    --         vim.lsp.start(vim.lsp.config[server_name])
-    --       end,
-    --     })
-    --   end,
-    -- })
   end,
 }
