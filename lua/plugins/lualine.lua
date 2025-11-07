@@ -9,6 +9,7 @@ return{
       options = {
         icons_enabled = true,
         theme = "palenight",
+        -- theme = "gruvbox-material",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
