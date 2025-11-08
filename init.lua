@@ -89,26 +89,23 @@ require("lazy").setup({
   spec = {
 
     -- add your plugins here
-
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- { "ellisonleao/gruvbox.nvim" },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-      signs = false,
-    }
-  },
-    { 'mbbill/undotree' },
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+        signs = false,
+      }
+    },
 
+    { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
-    {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
+    -- {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
+    {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
@@ -116,10 +113,6 @@ require("lazy").setup({
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.treesitter"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
-    -- {
-    --   "mason-org/mason.nvim",
-    --   opts = {}
-    -- },
     --end of lazy here 
   },
 
@@ -132,43 +125,16 @@ require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
 require('mini.ai').setup()     -- auto-pairing brackets
 
--- require("mason").setup()
+vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
+vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
 
--- require("catppuccin").setup({
---   transparent_background= true,
---    custom_highlights = function(colors)
---       return {
---         NormalFloat = { bg = "none" },
---         FloatBorder = { bg = "none" },
---         -- Lazy.nvim
---         LazyNormal = { bg = "none" },
---         LazyBorder = { bg = "none" },
---         -- Snacks picker (or other plugins using floats)
---         SnacksPickerNormal = { bg = "none" },
---         SnacksPickerBorder = { bg = "none" },
---       }
---     end
--- })
+vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
+vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
 
--- vim.cmd.colorscheme("catppuccin-mocha")
-
--- vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
---
--- vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- inactive tabs
--- vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
--- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
---
--- vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
---
--- vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
---
--- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
---
--- vim.cmd("highlight CursorLine guibg=#3d3442")
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
@@ -228,3 +194,39 @@ function _G.MyTabLine()
 end
 
 -- require("lsp") --remove if vim.lsp doesnt work out
+-- require("catppuccin").setup({
+--   transparent_background= true,
+--    custom_highlights = function(colors)
+--       return {
+--         NormalFloat = { bg = "none" },
+--         FloatBorder = { bg = "none" },
+--         -- Lazy.nvim
+--         LazyNormal = { bg = "none" },
+--         LazyBorder = { bg = "none" },
+--         -- Snacks picker (or other plugins using floats)
+--         SnacksPickerNormal = { bg = "none" },
+--         SnacksPickerBorder = { bg = "none" },
+--       }
+--     end
+-- })
+
+-- vim.cmd.colorscheme("catppuccin-mocha")
+
+-- vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
+--
+-- vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- inactive tabs
+-- vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })   -- active tab
+-- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                  -- background
+--
+-- vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
+--
+-- vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
+--
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
+--
+-- vim.cmd("highlight CursorLine guibg=#3d3442")
+
