@@ -34,13 +34,13 @@ return {
     -- vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#644A07" })   -- active tab
 
     vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#644A07" })   -- active tab
-    -- vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
-    --
-    -- vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#78C841", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#FFC50F", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
+
+    vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#78C841", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#FFC50F", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
 
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FF8040", bold = true })
   end,

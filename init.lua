@@ -103,9 +103,9 @@ require("lazy").setup({
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
-    -- {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
+    {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
-    {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
+    -- {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
@@ -125,16 +125,16 @@ require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
 require('mini.ai').setup()     -- auto-pairing brackets
 
-vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
-vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
-vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
-vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
-
-vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
-vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
-vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
-
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
+-- vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
+-- vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
+--
+-- vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
+--
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
