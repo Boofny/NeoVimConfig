@@ -19,7 +19,7 @@ return {
     invert_signs = false,
     invert_tabline = false,
     inverse = true,
-    contrast = "hard", -- "hard", "soft", or ""
+    contrast = "", -- "hard", "soft", or ""
     palette_overrides = {},
     overrides = {},
     dim_inactive = false,

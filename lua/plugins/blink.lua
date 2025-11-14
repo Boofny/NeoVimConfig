@@ -10,13 +10,13 @@ return{
   ---@type blink.cmp.Config
   opts = {
     keymap = {
-            preset = 'none',
+            preset = 'default',
 
-      ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<C-n>'] = { 'accept', 'fallback' },
-      ['<C-e>'] = { 'hide_documentation', 'fallback' },
-      ['<C-h>'] = { 'show_documentation', 'fallback' },
+      -- ['<S-Tab>'] = { 'select_prev', 'fallback' },
+      -- ['<Tab>'] = { 'select_next', 'fallback' },
+      -- ['<C-n>'] = { 'accept', 'fallback' },
+      -- ['<C-e>'] = { 'hide_documentation', 'fallback' },
+      -- ['<C-h>'] = { 'show_documentation', 'fallback' },
         },
 
     appearance = {
