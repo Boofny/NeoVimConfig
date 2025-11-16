@@ -104,8 +104,8 @@ require("lazy").setup({
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
-    -- {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
-    {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
+    {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
+    -- {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6

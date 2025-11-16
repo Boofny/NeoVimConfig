@@ -17,7 +17,18 @@ return {
     vim.lsp.config["ts_ls"] = {
       capabilities = capabilities,
       filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+      root_dir = require("lspconfig.util").root_pattern(
+        "package.json",
+        "tsconfig.json",
+        "jsconfig.json",
+        ".git"
+      ),
     }
+    -- old pattern
+    -- vim.lsp.config["ts_ls"] = {
+    --   capabilities = capabilities,
+    --   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    -- }
 
     -- can config the lsp servers individually but for now just ts and golang
     vim.lsp.config["gopls"] = {
