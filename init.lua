@@ -87,7 +87,6 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-
     -- add your plugins here
   { "navarasu/onedark.nvim", },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -105,8 +104,8 @@ require("lazy").setup({
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
-    -- {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
-    {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
+    {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
+    -- {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
@@ -230,4 +229,3 @@ end
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 --
 -- vim.cmd("highlight CursorLine guibg=#3d3442")
-
