@@ -233,3 +233,5 @@ end
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 --
 -- vim.cmd("highlight CursorLine guibg=#3d3442")
+
+require('render-markdown').disable() -- this disables the on start for rendering md files 
