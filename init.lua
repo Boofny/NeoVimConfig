@@ -88,16 +88,20 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- add your plugins here
-  { "navarasu/onedark.nvim", },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "ellisonleao/gruvbox.nvim" },
-    {
-      "folke/todo-comments.nvim",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      opts = {
-        signs = false,
-      }
-    },
+    -- {
+    --   "folke/todo-comments.nvim",
+    --   dependencies = { "nvim-lua/plenary.nvim" },
+    --   opts = {
+    --     signs = false,
+    --   }
+    -- },
 
     { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
@@ -163,10 +167,10 @@ vim.keymap.set(
   "<leader>ge",
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
-vim.cmd("iabbrev todo TODO:")
-vim.cmd("iabbrev note NOTE:")
-vim.cmd("iabbrev fix FIX:")
-vim.cmd("iabbrev bug BUG:")
+-- vim.cmd("iabbrev todo TODO:")
+-- vim.cmd("iabbrev note NOTE:")
+-- vim.cmd("iabbrev fix FIX:")
+-- vim.cmd("iabbrev bug BUG:")
 -- vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
 -- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
 

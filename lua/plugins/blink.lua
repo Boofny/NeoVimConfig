@@ -23,8 +23,12 @@ return{
       nerd_font_variant = 'mono',
 
     },
-
-    completion = { documentation = { auto_show = true} },
+    completion = {
+      menu = { border = 'single' },
+      documentation = { window = { border = 'single' }, auto_show = true},
+    },
+    signature = { window = { border = 'single' } },
+    -- completion = { documentation = { auto_show = true} },
     sources = {
         providers = {
                 lsp = {fallbacks={}}
