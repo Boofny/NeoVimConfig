@@ -88,11 +88,16 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- add your plugins here
+
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
+    lazy = true,
     opts = {},
+    keys = {
+      {
+        "<leader>0",
+      }
+    }
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- {
@@ -234,4 +239,4 @@ end
 --
 -- vim.cmd("highlight CursorLine guibg=#3d3442")
 
-require('render-markdown').disable() -- this disables the on start for rendering md files 
+-- require('render-markdown').disable() -- this disables the on start for rendering md files 
