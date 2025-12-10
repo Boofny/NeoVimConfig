@@ -100,14 +100,6 @@ require("lazy").setup({
     }
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    -- {
-    --   "folke/todo-comments.nvim",
-    --   dependencies = { "nvim-lua/plenary.nvim" },
-    --   opts = {
-    --     signs = false,
-    --   }
-    -- },
-
     { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
@@ -149,34 +141,29 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>w", ":w<CR>")
+-- vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>") -- save
 
-vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>")
-vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>")
+vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>") -- for quik terminal
 
-vim.keymap.set("n", "<leader>m", ":w | bd<CR>")
+vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>") -- file picker
+vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>") -- picker for open buffers
 
-vim.keymap.set('n', '<leader><leader>', vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>")
+vim.keymap.set("n", "<leader>m", ":w | bd<CR>") -- closing buffer
 
-vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>', vim.cmd.UndotreeToggle) -- undotree
+vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>") -- lazygit
+
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
 
-vim.cmd([[abbrev forj for(int j = 0; j < SIZE; j++){]])
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without yanking to clipboard" })
 vim.keymap.set(
   "n",
   "<leader>ge",
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
--- vim.cmd("iabbrev todo TODO:")
--- vim.cmd("iabbrev note NOTE:")
--- vim.cmd("iabbrev fix FIX:")
--- vim.cmd("iabbrev bug BUG:")
--- vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#ffffff", bg = "#124170" })
+
 -- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
 
 -- not show the tabline when starting
@@ -202,8 +189,7 @@ function _G.MyTabLine()
   return s .. "%#TabLineFill#"
 end
 
--- require("lsp") --remove if vim.lsp doesnt work out
--- require("catppuccin").setup({
+-- require("habamax").setup({
 --   transparent_background= true,
 --    custom_highlights = function(colors)
 --       return {
