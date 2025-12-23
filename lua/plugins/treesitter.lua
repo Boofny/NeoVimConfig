@@ -20,7 +20,7 @@ return{
       event = { "BufReadPost", "BufNewFile" },
       build = ":TSUpdate",
       config = function()
-        require("nvim-treesitter.configs").setup({
+        require("nvim-treesitter").setup({
           ensure_installed = { "java", "lua", "cpp", "python", "html", "css", "go" }, -- Add languages you need
           highlight = {
             enable = true,
