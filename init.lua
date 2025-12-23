@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "go",
-  [[:botright split | term sh -c "go run %"<CR>]],
+  [[:botright split | term go run %<CR>]],
   { noremap = true, silent = true }
 )
 -- For c++
