@@ -41,6 +41,7 @@ return {
     -- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
     --
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
-    vim.cmd("highlight CursorLine guibg=#3d3442")
+    -- vim.cmd("highlight CursorLine guibg=#3d3442")
+    -- vim.cmd("highlight CursorLine guibg=#303b45") oneDark 
   end,
 }

@@ -86,6 +86,9 @@ vim.g.maplocalleader = "\\"
     })
 -- Setup lazy.nvim
 require("lazy").setup({
+  ui = {
+    border = "rounded",
+  },
   spec = {
     -- add your plugins here
 
