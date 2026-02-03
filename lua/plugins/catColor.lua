@@ -27,7 +27,8 @@ return {
 
     vim.api.nvim_set_hl(0, "TabLine", { fg = "#C0C9EE", bg = "#1e1e2e" })       -- inactive tabs
     vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "#275378" })    -- active tab
-    vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                   -- background
+    vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e1e" })                   -- background
+    -- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e2e" })                   -- background
 
     -- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6c757d" })
     -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6c757d" })
@@ -42,6 +43,6 @@ return {
     --
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
     -- vim.cmd("highlight CursorLine guibg=#3d3442")
-    -- vim.cmd("highlight CursorLine guibg=#303b45") oneDark 
+    -- vim.cmd("highlight CursorLine guibg=#303b45") --ondark
   end,
 }

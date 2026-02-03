@@ -19,11 +19,11 @@ return {
     invert_signs = false,
     invert_tabline = false,
     inverse = true,
-    contrast = "", -- "hard", "soft", or ""
+    contrast = "hard", -- "hard", "soft", or ""
     palette_overrides = {},
     overrides = {},
     dim_inactive = false,
-    transparent_mode = false,
+    transparent_mode = true,
   },
   config = function(_, opts)
     local gruvbox = require("gruvbox")
