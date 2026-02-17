@@ -96,11 +96,11 @@ require("lazy").setup({
     'MeanderingProgrammer/render-markdown.nvim',
     lazy = true,
     opts = {},
-    keys = {
-      {
-        "<leader>0",
-      }
-    }
+    -- keys = {
+    --   {
+    --     "<leader>0",
+    --   }
+    -- }
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { 'mbbill/undotree' },
@@ -159,6 +159,7 @@ vim.keymap.set('n', '<leader><leader>', vim.cmd.UndotreeToggle) -- undotree
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>") -- lazygit
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
+vim.api.nvim_set_keymap("n", "<leader>0", ":RenderMarkdown toggle <CR>", { noremap = true, silent = true }) --NOT USELESS
 
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "delete line without yanking to clipboard" })
 vim.keymap.set(
