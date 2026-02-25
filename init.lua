@@ -1,4 +1,5 @@
 vim.opt.relativenumber = true -- Show relative line numbers for other lines
+vim.opt.number = true -- Show line numbers 
 vim.opt.cursorline = true
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = "*.java",
@@ -43,7 +44,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.cmd("startinsert") -- Switch to insert mode
   end,
 })
-vim.cmd("set number")
+-- vim.cmd("set number")
 vim.cmd("set laststatus=2")
 vim.cmd("command! Save w")
 vim.cmd("command! Nom %s/\r//g")
@@ -168,6 +169,18 @@ vim.keymap.set(
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
+vim.api.nvim_create_user_command(
+    'NoteMode',
+    function()
+        print("Take Notes!")
+        vim.cmd("set nonumber")
+        vim.cmd("set norelativenumber")
+        vim.cmd("Lazy load render-markdown.nvim")
+    end,
+    {
+        desc = 'Load render-markdown and get rid of side numbers for note taking'
+    }
+)
 -- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
 
 -- not show the tabline when starting
