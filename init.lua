@@ -181,7 +181,23 @@ vim.api.nvim_create_user_command(
         desc = 'Load render-markdown and get rid of side numbers for note taking'
     }
 )
--- :highlight BufferCurrent guifg=#ffffff guibg=#124170 
+vim.api.nvim_create_user_command(
+    'ToggleTab',
+    function()
+        if vim.opt.shiftwidth:get() == 4 then
+            print("Tab is now 2")
+            vim.opt.tabstop = 2
+            vim.opt.shiftwidth = 2
+        else
+            print("Tab is now 4")
+            vim.opt.tabstop = 4
+            vim.opt.shiftwidth = 4
+        end
+    end,
+    {
+        desc = 'Load render-markdown and get rid of side numbers for note taking'
+    }
+)
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
