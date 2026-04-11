@@ -1,19 +1,11 @@
 vim.opt.relativenumber = true -- Show relative line numbers for other lines
 vim.opt.number = true -- Show line numbers 
 vim.opt.cursorline = true
-vim.api.nvim_create_autocmd("BufNewFile", {
-  pattern = "*.java",
-  callback = function()
-    local filename = vim.fn.expand("%:t:r") -- current filename without extension
-    vim.api.nvim_buf_set_lines(0, 0, -1, false, {
-      "public class " .. filename .. " {",
-      "",
-      "}",
-    })
-    vim.api.nvim_win_set_cursor(0, { 2, 0 }) -- move cursor inside the class
-  end,
-})
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'go' },
+  callback = function() vim.treesitter.start() end,
+})
 
 -- For Java
 vim.api.nvim_set_keymap(
