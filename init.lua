@@ -222,3 +222,8 @@ vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1e1e1e" })                   -- b
 
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 
+vim.keymap.set("n", "K", function()
+  vim.lsp.buf.hover({
+    border = "rounded",
+  })
+end, { silent = true })
