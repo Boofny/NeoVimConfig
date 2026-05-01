@@ -24,8 +24,8 @@ return{
 
     },
     completion = {
-      menu = { border = 'single' },
-      documentation = { window = { border = 'single' }, auto_show = true},
+      menu = { border = 'rounded' },
+      documentation = { window = { border = 'rounded' }, auto_show = true},
     },
     signature = { window = { border = 'single' } },
     -- completion = { documentation = { auto_show = true} },
