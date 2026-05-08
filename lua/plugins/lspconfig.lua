@@ -18,22 +18,6 @@ return {
       automatic_installation = false,
     })
 
-    vim.lsp.config["ts_ls"] = {
-      capabilities = capabilities,
-      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-      root_dir = require("lspconfig.util").root_pattern(
-        "package.json",
-        "tsconfig.json",
-        "jsconfig.json",
-        ".git"
-      ),
-    }
-    -- old pattern
-    -- vim.lsp.config["ts_ls"] = {
-    --   capabilities = capabilities,
-    --   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    -- }
-
     -- can config the lsp servers individually but for now just ts and golang
     vim.lsp.config["gopls"] = {
       cmd = { "gopls" },
@@ -50,11 +34,24 @@ return {
       },
     }
 
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-      callback = function()
-        vim.lsp.start(vim.lsp.config["ts_ls"])
-      end,
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --   pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    --   callback = function()
+    --     vim.lsp.start(vim.lsp.config["ts_ls"])
+    --   end,
+    -- })
+
+
+    vim.lsp.config("ts_ls", {
+      capabilities = capabilities,
+      filetypes = {
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+      },
     })
+
+    vim.lsp.enable("ts_ls")
   end,
 }
