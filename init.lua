@@ -227,3 +227,28 @@ vim.keymap.set("n", "K", function()
     border = "rounded",
   })
 end, { silent = true })
+
+-- TODO (lavender/pink pastel)
+vim.api.nvim_set_hl(0, "TodoHighlight", {
+  bg = "#cba6f7", -- lavender
+  fg = "#1e1e2e", -- dark base for contrast
+  bold = true,
+})
+
+-- FIX (soft red, not harsh neon red)
+vim.api.nvim_set_hl(0, "FixHighlight", {
+  bg = "#f38ba8", -- pastel red (Catppuccin-like)
+  fg = "#1e1e2e",
+  bold = true,
+})
+
+-- NOTE (soft teal/sky)
+vim.api.nvim_set_hl(0, "NoteHighlight", {
+  bg = "#94e2d5", -- teal pastel
+  fg = "#1e1e2e",
+  bold = true,
+})
+
+vim.fn.matchadd("TodoHighlight", [[\v.*TODO:.*]])
+vim.fn.matchadd("FixHighlight",  [[\v.*FIX:.*]])
+vim.fn.matchadd("NoteHighlight", [[\v.*NOTE:.*]])
