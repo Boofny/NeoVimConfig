@@ -228,27 +228,30 @@ vim.keymap.set("n", "K", function()
   })
 end, { silent = true })
 
--- TODO (lavender/pink pastel)
+-- Highlight groups
 vim.api.nvim_set_hl(0, "TodoHighlight", {
-  bg = "#cba6f7", -- lavender
-  fg = "#1e1e2e", -- dark base for contrast
+  bg = "#cba6f7",
+  fg = "#1e1e2e",
   bold = true,
 })
 
--- FIX (soft red, not harsh neon red)
 vim.api.nvim_set_hl(0, "FixHighlight", {
-  bg = "#f38ba8", -- pastel red (Catppuccin-like)
+  bg = "#f38ba8",
   fg = "#1e1e2e",
   bold = true,
 })
 
--- NOTE (soft teal/sky)
 vim.api.nvim_set_hl(0, "NoteHighlight", {
-  bg = "#94e2d5", -- teal pastel
+  bg = "#94e2d5",
   fg = "#1e1e2e",
   bold = true,
 })
 
-vim.fn.matchadd("TodoHighlight", [[\v.*TODO:.*]])
-vim.fn.matchadd("FixHighlight",  [[\v.*FIX:.*]])
-vim.fn.matchadd("NoteHighlight", [[\v.*NOTE:.*]])
+-- Apply matches to every opened buffer/window
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+  callback = function()
+    vim.fn.matchadd("TodoHighlight", [[\vTODO:.*]])
+    vim.fn.matchadd("FixHighlight",  [[\vFIX:.*]])
+    vim.fn.matchadd("NoteHighlight", [[\vNOTE:.*]])
+  end,
+})
