@@ -95,14 +95,14 @@ require("lazy").setup({
     --   }
     -- }
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    { 'mbbill/undotree' },
+  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
-    -- {import = "plugins.gruvBoxColorSh"}, -- uncomment if vim.lsp does not work out
-    {import = "plugins.catColor"}, -- uncomment if vim.lsp does not work out
-    -- {import = "plugins.onedark"}, -- uncomment if vim.lsp does not work out
+    -- {import = "plugins.gruvBoxColorSh"}, 
+    {import = "plugins.catColor"}, -- main catppuccin color with tab colors
+    -- {import = "plugins.onedark"},
     {import = "plugins.lualine"}, --5
     {import = "plugins.neotree"}, --6
     {import = "plugins.blink"}, --6
@@ -148,7 +148,6 @@ vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>") -- picker f
 
 vim.keymap.set("n", "<leader>m", ":w | bd<CR>") -- closing buffer
 
-vim.keymap.set('n', '<leader><leader>', vim.cmd.UndotreeToggle) -- undotree
 vim.keymap.set("n", "<leader>gg", ":lua Snacks.lazygit()<CR>") -- lazygit
 
 vim.api.nvim_set_keymap("n", "<leader>nn", ":lcd %:p:h<CR>", { noremap = true, silent = true }) --NOT USELESS
@@ -255,3 +254,5 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
     vim.fn.matchadd("NoteHighlight", [[\vNOTE:.*]])
   end,
 })
+
+require("pack.undoTree")
