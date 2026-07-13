@@ -133,6 +133,10 @@ require('mini.ai').setup()     -- auto-pairing brackets
 --
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
 
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true })
@@ -144,7 +148,8 @@ vim.keymap.set("n", "<leader>w", ":w<CR>") -- save
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>") -- for quik terminal
 
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>") -- file picker
-vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>") -- picker for open buffers
+
+vim.keymap.set("n", "<leader>p", ":marks A-Z<CR>:'") -- just a random free keymap
 
 vim.keymap.set("n", "<leader>m", ":w | bd<CR>") -- closing buffer
 
