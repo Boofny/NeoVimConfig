@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 -- vim.cmd("set number")
 
+vim.cmd("delmarks BCD")
 vim.cmd("mark A")
 vim.cmd("set laststatus=2")
 vim.cmd("command! Save w")
@@ -97,6 +98,9 @@ require("lazy").setup({
     --   }
     -- }
   },
+  {
+    dir = "~/NvimProjects/teleport.nvim",
+  },
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
@@ -145,21 +149,10 @@ vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<C-e>", ":MarkFiles<CR>:'")
-
-vim.keymap.set("n", "<leader>1", ":'A<CR>")
-vim.keymap.set("n", "<leader>2", ":'B<CR>")
-vim.keymap.set("n", "<leader>3", ":'C<CR>")
-vim.keymap.set("n", "<leader>4", ":'D<CR>")
-
-vim.keymap.set("n", "<leader>k1", ":mark A<CR>")
-vim.keymap.set("n", "<leader>k2", ":mark B<CR>")
-vim.keymap.set("n", "<leader>k3", ":mark C<CR>")
-vim.keymap.set("n", "<leader>k4", ":mark D<CR>")
 
 vim.keymap.set("n", "<leader>w", ":w<CR>") -- save
 
-vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>") -- for quik terminal
+-- vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>") -- for quik terminal
 
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>") -- file picker
 
@@ -180,63 +173,58 @@ vim.keymap.set(
 )
 
 vim.api.nvim_create_user_command(
-    'NoteMode',
-    function()
-        print("Take Notes!")
-        vim.cmd("set nonumber")
-        vim.cmd("set norelativenumber")
-        vim.cmd("Lazy load render-markdown.nvim")
-    end,
-    {
-        desc = 'Load render-markdown and get rid of side numbers for note taking'
-    }
+  'NoteMode',
+  function()
+    print("Take Notes!")
+    vim.cmd("set nonumber")
+    vim.cmd("set norelativenumber")
+    vim.cmd("Lazy load render-markdown.nvim")
+  end,
+  {
+    desc = 'Load render-markdown and get rid of side numbers for note taking'
+  }
 )
+
 vim.api.nvim_create_user_command(
-    'ToggleTab',
-    function()
-        if vim.opt.shiftwidth:get() == 4 then
-            print("Tab is now 2")
-            vim.opt.tabstop = 2
-            vim.opt.shiftwidth = 2
-        else
-            print("Tab is now 4")
-            vim.opt.tabstop = 4
-            vim.opt.shiftwidth = 4
-        end
-    end,
-    {
-        desc = 'Load render-markdown and get rid of side numbers for note taking'
-    }
+  'ToggleTab',
+  function()
+    if vim.opt.shiftwidth:get() == 4 then
+      print("Tab is now 2")
+      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
+    else
+      print("Tab is now 4")
+      vim.opt.tabstop = 4
+      vim.opt.shiftwidth = 4
+    end
+  end,
+  {
+    desc = 'Load render-markdown and get rid of side numbers for note taking'
+  }
 )
+
+local tele = require("teleport")
+
+vim.keymap.set("n", "<C-e>", tele.list_mark_files)
+
+vim.keymap.set("n", "<leader>1", function() tele.navMark(1) end)
+vim.keymap.set("n", "<leader>2", function() tele.navMark(2) end)
+vim.keymap.set("n", "<leader>3", function() tele.navMark(3) end)
+vim.keymap.set("n", "<leader>4", function() tele.navMark(4) end)
+
+--TODO: all these command will become C-a for adding marks
+vim.keymap.set("n", "<leader>k1", ":mark A<CR>")
+vim.keymap.set("n", "<leader>k2", ":mark B<CR>")
+vim.keymap.set("n", "<leader>k3", ":mark C<CR>")
+vim.keymap.set("n", "<leader>k4", ":mark D<CR>")
+
+-- vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
 
 -- use custom tabline function
 vim.o.tabline = "%!v:lua.MyTabLine()"
-
-local function list_mark_files()
-  for _, mark in ipairs(vim.fn.getmarklist()) do
-    if mark.mark:match("^'[A-D]$") then
-      print(
-        mark.mark:sub(2),
-        vim.fn.fnamemodify(mark.file, ":t")
-      )
-    end
-  end
-end
-
-vim.api.nvim_create_user_command(
-  'ClearMarks',
-  function()
-      vim.cmd("delmarks ABCD")
-  end,
-  {
-    desc = ''
-  }
-)
-
-vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
 function _G.MyTabLine()
   local s = ""
