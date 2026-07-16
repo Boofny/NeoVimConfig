@@ -79,7 +79,7 @@ return{
     bigfile = { enabled = true },
     indent = { enabled = true },
     quickfile = { enabled = true },
-    picker = {enabled = true, peview = nil},
+    picker = {enabled = true, preview = false},
     dashboard = {
       preset = {
         pick = function(cmd, opts)

@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 -- vim.cmd("set number")
+
+vim.cmd("mark A")
 vim.cmd("set laststatus=2")
 vim.cmd("command! Save w")
 vim.cmd("command! Nom %s/\r//g")
@@ -143,13 +145,25 @@ vim.api.nvim_set_keymap("n", "<leader>l", "$", { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>h", "^", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<leader>k", "gM", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<C-e>", ":MarkFiles<CR>:'")
+
+vim.keymap.set("n", "<leader>1", ":'A<CR>")
+vim.keymap.set("n", "<leader>2", ":'B<CR>")
+vim.keymap.set("n", "<leader>3", ":'C<CR>")
+vim.keymap.set("n", "<leader>4", ":'D<CR>")
+
+vim.keymap.set("n", "<leader>k1", ":mark A<CR>")
+vim.keymap.set("n", "<leader>k2", ":mark B<CR>")
+vim.keymap.set("n", "<leader>k3", ":mark C<CR>")
+vim.keymap.set("n", "<leader>k4", ":mark D<CR>")
+
 vim.keymap.set("n", "<leader>w", ":w<CR>") -- save
 
 vim.keymap.set("n", "<leader>t", ":vertical belowright terminal<CR>") -- for quik terminal
 
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>") -- file picker
 
-vim.keymap.set("n", "<leader>p", ":marks A-Z<CR>:'") -- just a random free keymap
+vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>") -- just a random free keymap
 
 vim.keymap.set("n", "<leader>m", ":w | bd<CR>") -- closing buffer
 
@@ -200,6 +214,29 @@ vim.o.showtabline = 1
 
 -- use custom tabline function
 vim.o.tabline = "%!v:lua.MyTabLine()"
+
+local function list_mark_files()
+  for _, mark in ipairs(vim.fn.getmarklist()) do
+    if mark.mark:match("^'[A-D]$") then
+      print(
+        mark.mark:sub(2),
+        vim.fn.fnamemodify(mark.file, ":t")
+      )
+    end
+  end
+end
+
+vim.api.nvim_create_user_command(
+  'ClearMarks',
+  function()
+      vim.cmd("delmarks ABCD")
+  end,
+  {
+    desc = ''
+  }
+)
+
+vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
 function _G.MyTabLine()
   local s = ""
