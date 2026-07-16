@@ -88,16 +88,16 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    lazy = true,
-    opts = {},
-    -- keys = {
-    --   {
-    --     "<leader>0",
-    --   }
-    -- }
-  },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   lazy = true,
+  --   opts = {},
+  --   -- keys = {
+  --   --   {
+  --   --     "<leader>0",
+  --   --   }
+  --   -- }
+  -- },
   {
     dir = "~/NvimProjects/teleport.nvim",
   },
