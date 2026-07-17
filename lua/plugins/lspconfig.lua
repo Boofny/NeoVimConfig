@@ -34,13 +34,18 @@ return {
       },
     }
 
-    -- vim.api.nvim_create_autocmd("FileType", {
-    --   pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    --   callback = function()
-    --     vim.lsp.start(vim.lsp.config["ts_ls"])
-    --   end,
-    -- })
+    -- Gets rid of the vim warning from the lsp server 
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    })
 
+    vim.lsp.enable("lua_ls")
 
     vim.lsp.config("ts_ls", {
       capabilities = capabilities,

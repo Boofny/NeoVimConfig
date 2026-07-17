@@ -206,6 +206,7 @@ vim.api.nvim_create_user_command(
 local tele = require("teleport")
 
 vim.keymap.set("n", "<C-e>", tele.list_mark_files)
+vim.keymap.set("n", "<C-a>", tele.addMark)
 
 vim.keymap.set("n", "<leader>1", function() tele.navMark(1) end)
 vim.keymap.set("n", "<leader>2", function() tele.navMark(2) end)
@@ -213,10 +214,10 @@ vim.keymap.set("n", "<leader>3", function() tele.navMark(3) end)
 vim.keymap.set("n", "<leader>4", function() tele.navMark(4) end)
 
 --TODO: all these command will become C-a for adding marks
-vim.keymap.set("n", "<leader>k1", ":mark A<CR>")
-vim.keymap.set("n", "<leader>k2", ":mark B<CR>")
-vim.keymap.set("n", "<leader>k3", ":mark C<CR>")
-vim.keymap.set("n", "<leader>k4", ":mark D<CR>")
+-- vim.keymap.set("n", "<leader>k1", ":mark A<CR>")
+-- vim.keymap.set("n", "<leader>k2", ":mark B<CR>")
+-- vim.keymap.set("n", "<leader>k3", ":mark C<CR>")
+-- vim.keymap.set("n", "<leader>k4", ":mark D<CR>")
 
 -- vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
