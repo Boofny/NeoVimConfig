@@ -101,6 +101,7 @@ require("lazy").setup({
   {
     dir = "~/NvimProjects/teleport.nvim",
   },
+
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- { 'mbbill/undotree' },
     -- {import = "plugins.gitsigns"}, --1
@@ -116,6 +117,17 @@ require("lazy").setup({
     -- {import = "plugins.telescope"}, --10
     {import = "plugins.treesitter"}, --12
     { 'echasnovski/mini.nvim', version = '*' },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua", -- only load on lua files
+      opts = {
+        library = {
+          -- See the configuration section for more details
+          -- Load luvit types when the `vim.uv` word is found
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        },
+      },
+    },
     --end of lazy here 
   },
 
@@ -185,40 +197,42 @@ vim.api.nvim_create_user_command(
   }
 )
 
-vim.api.nvim_create_user_command(
-  'ToggleTab',
-  function()
-    if vim.opt.shiftwidth:get() == 4 then
-      print("Tab is now 2")
-      vim.opt.tabstop = 2
-      vim.opt.shiftwidth = 2
-    else
-      print("Tab is now 4")
-      vim.opt.tabstop = 4
-      vim.opt.shiftwidth = 4
-    end
-  end,
-  {
-    desc = 'Load render-markdown and get rid of side numbers for note taking'
-  }
-)
+-- vim.api.nvim_create_user_command(
+--   'ToggleTab',
+--   function()
+--     if vim.opt.shiftwidth:get() == 4 then
+--       print("Tab is now 2")
+--       vim.opt.tabstop = 2
+--       vim.opt.shiftwidth = 2
+--     else
+--       print("Tab is now 4")
+--       vim.opt.tabstop = 4
+--       vim.opt.shiftwidth = 4
+--     end
+--   end,
+--   {
+--     desc = 'Load render-markdown and get rid of side numbers for note taking'
+--   }
+-- )
 
 local tele = require("teleport")
+local nav = require("teleport.navigate")
+local ui = require("teleport.ui")
 
-vim.keymap.set("n", "<C-e>", tele.list_mark_files)
+vim.keymap.set("n", "<C-e>", ui.list_mark_files)
+vim.keymap.set("n", "<leader>t", ui.list_mark_files)
 vim.keymap.set("n", "<C-a>", tele.addMark)
 vim.keymap.set("n", "<leader>a", tele.addMark)
 
-vim.keymap.set("n", "<leader>1", function() tele.navMark(1) end)
-vim.keymap.set("n", "<leader>2", function() tele.navMark(2) end)
-vim.keymap.set("n", "<leader>3", function() tele.navMark(3) end)
-vim.keymap.set("n", "<leader>4", function() tele.navMark(4) end)
+vim.keymap.set("n", "<leader>1", function() nav.navMark(1) end)
+vim.keymap.set("n", "<leader>2", function() nav.navMark(2) end)
+vim.keymap.set("n", "<leader>3", function() nav.navMark(3) end)
+vim.keymap.set("n", "<leader>4", function() nav.navMark(4) end)
 
---TODO: all these command will become C-a for adding marks
-vim.keymap.set("n", "<leader>k1", function() tele.addMarkBypass(1) end)
-vim.keymap.set("n", "<leader>k2", function() tele.addMarkBypass(2) end)
-vim.keymap.set("n", "<leader>k3", function() tele.addMarkBypass(3) end)
-vim.keymap.set("n", "<leader>k4", function() tele.addMarkBypass(4) end)
+vim.keymap.set("n", "<leader>k1", function() nav.addMarkBypass(1) end)
+vim.keymap.set("n", "<leader>k2", function() nav.addMarkBypass(2) end)
+vim.keymap.set("n", "<leader>k3", function() nav.addMarkBypass(3) end)
+vim.keymap.set("n", "<leader>k4", function() nav.addMarkBypass(4) end)
 
 -- vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
