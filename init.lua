@@ -101,10 +101,6 @@ require("lazy").setup({
   {
     dir = "~/NvimProjects/teleport.nvim",
   },
-
-  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    -- { 'mbbill/undotree' },
-    -- {import = "plugins.gitsigns"}, --1
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, 
@@ -197,24 +193,6 @@ vim.api.nvim_create_user_command(
   }
 )
 
--- vim.api.nvim_create_user_command(
---   'ToggleTab',
---   function()
---     if vim.opt.shiftwidth:get() == 4 then
---       print("Tab is now 2")
---       vim.opt.tabstop = 2
---       vim.opt.shiftwidth = 2
---     else
---       print("Tab is now 4")
---       vim.opt.tabstop = 4
---       vim.opt.shiftwidth = 4
---     end
---   end,
---   {
---     desc = 'Load render-markdown and get rid of side numbers for note taking'
---   }
--- )
-
 local tele = require("teleport")
 local nav = require("teleport.navigate")
 local ui = require("teleport.ui")
@@ -233,8 +211,6 @@ vim.keymap.set("n", "<leader>k1", function() nav.addMarkBypass(1) end)
 vim.keymap.set("n", "<leader>k2", function() nav.addMarkBypass(2) end)
 vim.keymap.set("n", "<leader>k3", function() nav.addMarkBypass(3) end)
 vim.keymap.set("n", "<leader>k4", function() nav.addMarkBypass(4) end)
-
--- vim.api.nvim_create_user_command("MarkFiles", list_mark_files, {})
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
