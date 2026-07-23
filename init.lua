@@ -88,19 +88,9 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
-  -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
-  --   lazy = true,
-  --   opts = {},
-  --   -- keys = {
-  --   --   {
-  --   --     "<leader>0",
-  --   --   }
-  --   -- }
-  -- },
-  {
-    dir = "~/NvimProjects/teleport.nvim",
-  },
+    {
+      dir = "~/NvimProjects/teleport.nvim",
+    },
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, 
@@ -136,17 +126,6 @@ require('mini.pairs').setup()     -- auto-pairing brackets
 require('mini.diff').setup()     -- auto-pairing brackets
 require('mini.ai').setup()     -- auto-pairing brackets
 
--- vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })  -- or any color you want
--- vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#70e000", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#ffc300", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff595e", bg = "NONE" })
---
--- vim.api.nvim_set_hl(0, "MiniDiffLineAdd", { fg = "#70e000", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffLineChange", { fg = "#ffc300", bg = "NONE" })
--- vim.api.nvim_set_hl(0, "MiniDiffLineDelete", { fg = "#ff595e", bg = "NONE" })
---
--- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f15bb5", bold = true })
-
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -180,19 +159,6 @@ vim.keymap.set(
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
-vim.api.nvim_create_user_command(
-  'NoteMode',
-  function()
-    print("Take Notes!")
-    vim.cmd("set nonumber")
-    vim.cmd("set norelativenumber")
-    vim.cmd("Lazy load render-markdown.nvim")
-  end,
-  {
-    desc = 'Load render-markdown and get rid of side numbers for note taking'
-  }
-)
-
 local tele = require("teleport")
 local nav = require("teleport.navigate")
 local ui = require("teleport.ui")
@@ -207,10 +173,10 @@ vim.keymap.set("n", "<leader>2", function() nav.navMark(2) end)
 vim.keymap.set("n", "<leader>3", function() nav.navMark(3) end)
 vim.keymap.set("n", "<leader>4", function() nav.navMark(4) end)
 
-vim.keymap.set("n", "<leader>k1", function() tele.addMarkBypass(1) end)
-vim.keymap.set("n", "<leader>k2", function() tele.addMarkBypass(2) end)
-vim.keymap.set("n", "<leader>k3", function() tele.addMarkBypass(3) end)
-vim.keymap.set("n", "<leader>k4", function() tele.addMarkBypass(4) end)
+vim.keymap.set("n", "<leader>k1", function() tele.addMarkOverride(1) end)
+vim.keymap.set("n", "<leader>k2", function() tele.addMarkOverride(2) end)
+vim.keymap.set("n", "<leader>k3", function() tele.addMarkOverride(3) end)
+vim.keymap.set("n", "<leader>k4", function() tele.addMarkOverride(4) end)
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
@@ -249,39 +215,5 @@ vim.keymap.set("n", "K", function()
   })
 end, { silent = true })
 
--- Highlight groups
-vim.api.nvim_set_hl(0, "TodoHighlight", {
-  bg = "#cba6f7",
-  fg = "#1e1e2e",
-  bold = true,
-})
-
-vim.api.nvim_set_hl(0, "FixHighlight", {
-  bg = "#fffba8",
-  fg = "#1e1e2e",
-  bold = true,
-})
-
-vim.api.nvim_set_hl(0, "WarnHighlight", {
-  bg = "#f38ba8",
-  fg = "#1e1e2e",
-  bold = true,
-})
-
-vim.api.nvim_set_hl(0, "NoteHighlight", {
-  bg = "#94e2d5",
-  fg = "#1e1e2e",
-  bold = true,
-})
-
--- Apply matches to every opened buffer/window
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-  callback = function()
-    vim.fn.matchadd("TodoHighlight", [[\vTODO:.*]])
-    vim.fn.matchadd("FixHighlight",  [[\vFIX:.*]])
-    vim.fn.matchadd("WarnHighlight",  [[\vWARN:.*]])
-    vim.fn.matchadd("NoteHighlight", [[\vNOTE:.*]])
-  end,
-})
-
+require("plugins.hlgroups")
 require("pack.undoTree")

@@ -6,6 +6,7 @@ return {
   config = function()
     require("catppuccin").setup({
       transparent_background = true,
+      flavour = "mocha",
       custom_highlights = function(colors)
         return {
           NormalFloat = { bg = "none" },
@@ -22,6 +23,11 @@ return {
 
     vim.cmd.colorscheme("catppuccin")
 
+    local colors = require("catppuccin.palettes.mocha")
+
+    vim.api.nvim_set_hl(0, "LuaLineDiffChange", {
+      fg = colors.yellow, -- Catppuccin Mocha yellow
+    })
     -- highlight overrides below
     vim.api.nvim_set_hl(0, "Visual", { bg = "#275378" })
 

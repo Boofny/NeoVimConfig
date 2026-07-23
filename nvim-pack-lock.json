@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "teleport": {
+      "rev": "19d254ad3e50dd4db393ad2ad274449887c6c983",
+      "src": "/home/Boofny/NvimProjects/teleport.nvim"
+    }
+  }
+}
