@@ -1,11 +1,10 @@
-print("teleport config loaded")
 vim.pack.add({
   {
     src = vim.fn.expand("~/NvimProjects/teleport.nvim"), name = "teleport",
   },
 })
 
-vim.cmd("packadd teleport")
+-- vim.cmd("packadd teleport")
 
 local tele = require("teleport")
 local nav = require("teleport.navigate")

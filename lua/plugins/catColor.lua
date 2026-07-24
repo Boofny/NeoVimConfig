@@ -1,5 +1,6 @@
 return {
   "catppuccin/nvim",
+  commit = "e068ab5",
   name = "catppuccin",
   priority = 1000,
   lazy = false,
