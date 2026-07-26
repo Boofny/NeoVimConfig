@@ -38,8 +38,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 -- vim.cmd("set number")
 
-vim.cmd("delmarks BCD")
-vim.cmd("mark A")
+vim.cmd("delmarks ABCD")
+-- vim.cmd("mark A")
 vim.cmd("set laststatus=2")
 vim.cmd("command! Save w")
 vim.cmd("command! Nom %s/\r//g")
@@ -87,7 +87,6 @@ require("lazy").setup({
   },
   spec = {
     -- add your plugins here
-
     {
       dir = "~/NvimProjects/teleport.nvim",
     },
@@ -162,21 +161,24 @@ vim.keymap.set(
 local tele = require("teleport")
 local nav = require("teleport.navigate")
 local ui = require("teleport.ui")
+tele.Setup()
 
 vim.keymap.set("n", "<C-e>", ui.list_mark_files)
-vim.keymap.set("n", "<leader>t", ui.list_mark_files)
 vim.keymap.set("n", "<C-a>", tele.add_mark)
+vim.keymap.set("n", "<leader>t", ui.list_mark_files)
 vim.keymap.set("n", "<leader>a", tele.add_mark)
+
+vim.keymap.set("n", "<leader>gt", ui.find_marks) -- optional
 
 vim.keymap.set("n", "<leader>1", function() nav.nav_mark(1) end)
 vim.keymap.set("n", "<leader>2", function() nav.nav_mark(2) end)
 vim.keymap.set("n", "<leader>3", function() nav.nav_mark(3) end)
 vim.keymap.set("n", "<leader>4", function() nav.nav_mark(4) end)
 
-vim.keymap.set("n", "<leader>k1", function() tele.add_mark_override(1) end)
-vim.keymap.set("n", "<leader>k2", function() tele.add_mark_override(2) end)
-vim.keymap.set("n", "<leader>k3", function() tele.add_mark_override(3) end)
-vim.keymap.set("n", "<leader>k4", function() tele.add_mark_override(4) end)
+vim.keymap.set("n", "<leader>k1", function() tele:add_mark_override(1) end)
+vim.keymap.set("n", "<leader>k2", function() tele:add_mark_override(2) end)
+vim.keymap.set("n", "<leader>k3", function() tele:add_mark_override(3) end)
+vim.keymap.set("n", "<leader>k4", function() tele:add_mark_override(4) end)
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
