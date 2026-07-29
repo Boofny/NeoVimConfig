@@ -1,3 +1,4 @@
+local teleport = require("teleport")
 return{
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPost", "BufNewFile" },
@@ -32,8 +33,17 @@ return{
         lualine_a = { {"mode", icon = "  "} },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
-        lualine_x = { "filetype" },
-        lualine_y = { "progress" },
+        lualine_x = {
+          -- function ()
+          --   local mark = teleport.current_mark()
+          --   if mark == "" then
+          --     return ""
+          --   end
+          --   return "Mark: " .. mark
+          -- end
+          "filetype" },
+
+        lualine_y = {},
         lualine_z = { "location", "lsp_status" },
       },
       inactive_sections = {
