@@ -160,7 +160,9 @@ vim.keymap.set(
 
 local tele = require("teleport")
 
-tele.Setup()
+tele.Setup({
+  border = "rounded",
+})
 
 vim.keymap.set("n", "<leader>t", tele.list_mark_files)
 vim.keymap.set("n", "<leader>a", tele.add_mark)
