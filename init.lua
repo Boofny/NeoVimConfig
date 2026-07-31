@@ -167,15 +167,18 @@ vim.keymap.set("n", "<leader>a", tele.add_mark)
 
 vim.keymap.set("n", "<leader>gt", tele.find_marks) -- optional
 
-vim.keymap.set("n", "<leader>1", function() tele.nav_mark(1) end)
-vim.keymap.set("n", "<leader>2", function() tele.nav_mark(2) end)
-vim.keymap.set("n", "<leader>3", function() tele.nav_mark(3) end)
-vim.keymap.set("n", "<leader>4", function() tele.nav_mark(4) end)
+vim.keymap.set("n", "<leader>1", function() tele.nav:nav_mark(1) end)
+vim.keymap.set("n", "<leader>2", function() tele.nav:nav_mark(2) end)
+vim.keymap.set("n", "<leader>3", function() tele.nav:nav_mark(3) end)
+vim.keymap.set("n", "<leader>4", function() tele.nav:nav_mark(4) end)
 
 vim.keymap.set("n", "<leader>k1", function() tele:add_mark_override(1) end)
 vim.keymap.set("n", "<leader>k2", function() tele:add_mark_override(2) end)
 vim.keymap.set("n", "<leader>k3", function() tele:add_mark_override(3) end)
 vim.keymap.set("n", "<leader>k4", function() tele:add_mark_override(4) end)
+
+vim.keymap.set("n", "<C-S-N>", function() tele.nav:next() end)
+vim.keymap.set("n", "<C-S-P>", function() tele.nav:prev() end)
 
 -- not show the tabline when starting
 vim.o.showtabline = 1
