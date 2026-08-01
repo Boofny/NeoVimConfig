@@ -1,27 +1,27 @@
 return{
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-        lazy = false,
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "MunifTanjim/nui.nvim",
-      },
-      keys = {
-        {
-          "<leader>e",
-          function()
-            -- Load and setup only when key is pressed
-            require("neo-tree").setup({
-                window = {
-                position = "right",  
-                },
-            })
-            require("neo-tree.command").execute({ toggle = true })
-          end,
-          desc = "Toggle Neo-tree",
-        },
-      },
+  branch = "v3.x",
+  "nvim-neo-tree/neo-tree.nvim",
+  lazy = false,
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  keys = {
+    {
+      "<leader>e",
+      function()
+        -- Load and setup only when key is pressed
+        require("neo-tree").setup({
+          window = {
+            position = "right",
+          },
+        })
+        require("neo-tree.command").execute({ toggle = true })
+      end,
+      desc = "Toggle Neo-tree",
+    },
+  },
     -- },
 
 config = function()
@@ -41,17 +41,17 @@ require("neo-tree").setup({
   },
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 1 then
-      local arg = vim.fn.argv()[1]
-      if vim.fn.isdirectory(arg) == 1 then
-        require("neo-tree").setup({ window = { position = "right" } }) -- (optional if not set up yet)
-        require("neo-tree.command").execute({ dir = arg })
-      end
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     if vim.fn.argc() == 1 then
+--       local arg = vim.fn.argv()[1]
+--       if vim.fn.isdirectory(arg) == 1 then
+--         require("neo-tree").setup({ window = { position = "right" } }) -- (optional if not set up yet)
+--         require("neo-tree.command").execute({ dir = arg })
+--       end
+--     end
+--   end,
+-- })
 
 end,
 }
