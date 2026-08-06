@@ -145,7 +145,7 @@ vim.keymap.set("n", "<leader>w", ":w<CR>") -- save
 
 vim.keymap.set("n", "<leader>f", ":lua Snacks.picker.files()<CR>") -- file picker
 
-vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.buffers()<CR>") -- just a random free keymap
+vim.keymap.set("n", "<leader>p", ":lua Snacks.picker.grep_word()<CR>") -- just a random free keymap
 
 vim.keymap.set("n", "<leader>m", ":w | bd<CR>") -- closing buffer
 

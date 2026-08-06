@@ -79,7 +79,17 @@ return{
     bigfile = { enabled = true },
     indent = { enabled = true },
     quickfile = { enabled = true },
-    picker = {enabled = true, preview = false},
+    picker = {
+      enabled = true,
+      sources = {
+        grep = {
+          layout ={ preview = false}
+        },
+        grep_word = {
+          layout ={ preview = false}
+        }
+      }
+    },
     dashboard = {
       preset = {
         pick = function(cmd, opts)
