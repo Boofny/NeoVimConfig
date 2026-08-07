@@ -222,5 +222,6 @@ vim.keymap.set("n", "K", function()
   })
 end, { silent = true })
 
+vim.lsp.enable("gopls") -- for now not using mason for the gopls version of 22 will wait some time to see if the upates dont mess up the colors
 require("plugins.hlgroups")
 require("pack.undoTree")

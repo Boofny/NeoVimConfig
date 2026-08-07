@@ -20,7 +20,9 @@ return {
 
     -- can config the lsp servers individually but for now just ts and golang
     vim.lsp.config["gopls"] = {
-      cmd = { "gopls" },
+      cmd = { vim.fn.expand("~/go/bin/gopls") },
+      -- cmd = {"gopls"}, -- old line for when going back to using mason for the lsp when updates dont break my stuff
+      capabilities = capabilities,
       filetypes = { "go", "gomod", "gowork" },
       root_markers = { "go.work", "go.mod", ".git" },
       settings = {
