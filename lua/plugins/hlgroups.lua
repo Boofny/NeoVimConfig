@@ -32,6 +32,8 @@ vim.api.nvim_set_hl(0, "BugHighlight", {
 -- Apply matches to every opened buffer/window
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
   callback = function()
+    vim.fn.clearmatches() -- ig clear marks before drawing them
+
     vim.fn.matchadd("TodoHighlight", [[\vTODO:.*]])
     vim.fn.matchadd("FixHighlight",  [[\vFIX:.*]])
     vim.fn.matchadd("WarnHighlight",  [[\vWARN:.*]])
