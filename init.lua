@@ -2,6 +2,9 @@ vim.opt.relativenumber = true -- Show relative line numbers for other lines
 vim.opt.number = true -- Show line numbers 
 vim.opt.cursorline = true
 
+vim.o.grepprg = "rg --vimgrep --smart-case --hidden"
+vim.o.grepformat = "%f:%l:%c:%m"
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'go' },
   callback = function() vim.treesitter.start() end,
