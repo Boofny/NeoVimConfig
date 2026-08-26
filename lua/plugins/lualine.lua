@@ -33,13 +33,17 @@ return{
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = {
-          -- function ()
-          --   local mark = teleport.current_mark()
-          --   if mark == "" then
-          --     return ""
-          --   end
-          --   return "Mark: " .. mark
-          -- end
+          {
+          function ()
+            local ok, teleport = pcall(require, 'teleport.markings')
+            if not ok then return '' end
+            local current = teleport.status_line_current_mark()
+            if current == -1 then
+              return ''
+            end
+            return "T: " .. current
+          end
+          },
           "filetype" },
 
         lualine_y = {},
