@@ -96,6 +96,8 @@ require("lazy").setup({
     {
       dir = "~/NvimProjects/teleport.nvim",
     },
+
+    { "rebelot/kanagawa.nvim" },
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, 
@@ -166,7 +168,7 @@ vim.keymap.set(
 
 local tele = require("teleport")
 
-tele.Setup({
+tele.setup({
   border = "rounded",
 })
 
