@@ -2,6 +2,7 @@ vim.opt.relativenumber = true -- Show relative line numbers for other lines
 vim.opt.number = true -- Show line numbers 
 vim.opt.cursorline = true
 
+-- TODO: get the start time down
 vim.o.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.o.grepformat = "%f:%l:%c:%m"
 
@@ -96,8 +97,10 @@ require("lazy").setup({
     {
       dir = "~/NvimProjects/teleport.nvim",
     },
+    {
+      dir = "~/NvimProjects/gen_cpp.nvim",
+    },
 
-    { "rebelot/kanagawa.nvim" },
     -- {import = "plugins.nvimcmp"}, --3
     {import = "plugins.lspconfig"}, -- uncomment if vim.lsp does not work out
     -- {import = "plugins.gruvBoxColorSh"}, 
