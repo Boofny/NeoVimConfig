@@ -99,6 +99,7 @@ require("lazy").setup({
     },
     {
       dir = "~/NvimProjects/gen_cpp.nvim",
+      ft = {"hpp", "cpp"},
     },
 
     -- {import = "plugins.nvimcmp"}, --3
